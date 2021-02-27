@@ -34,7 +34,9 @@ class Sequence{
     }
     
     
-    nodes[0].edge_to(nodes[this.nodes.length-1]);
+    if(!open){
+      nodes[0].edge_to(nodes[this.nodes.length-1]);
+    }
     
     strokeWeight(1);
   }

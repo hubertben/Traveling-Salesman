@@ -30,6 +30,7 @@ void mouseReleased() {
     current_grab.clr = color(255, 255, 255);
   }
   current_grab = null;
+  //run_once = true;
 }
 
 
@@ -82,7 +83,10 @@ public void keyPressed(){
     for(Node n : nodes){
       n.move_M();
     }
+  
   }else if(key == 'o' || key == 'O'){
+    open = !open;
+    run_once = true;
   }
   
   

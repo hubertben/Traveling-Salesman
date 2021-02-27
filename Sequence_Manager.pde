@@ -11,14 +11,22 @@ class Sequence_Manager{
     
     while (pg.hasMore()) {
         int[] temp =  pg.getNext();
-        Node[] input = new Node[nodes.size()+1];
+        
+        int le = nodes.size()+1;
+        if(open){
+          le = nodes.size();
+        }
+        
+        Node[] input = new Node[le];
         
         for (int i = 0; i < temp.length; i++) {
             input[i] = nodes.get(temp[i]-1);
         }
         
-        input[temp.length] = nodes.get(temp[0]-1);
-
+        if(!open){
+          input[temp.length] = nodes.get(temp[0]-1);
+        }
+        
         Sequence s = new Sequence(input);
         float sum = s.solve();
         
