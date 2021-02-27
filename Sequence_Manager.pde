@@ -1,4 +1,5 @@
 
+int starting_node = 0;
 
 class Sequence_Manager{
 
@@ -10,8 +11,10 @@ class Sequence_Manager{
     Permutation_Generator pg = new Permutation_Generator(nodes.size(), 1);
     
     while (pg.hasMore()) {
-        int[] temp =  pg.getNext();
-        
+      int[] temp =  pg.getNext();
+      
+      if(temp[0]-1 == starting_node){
+      
         int le = nodes.size()+1;
         if(open){
           le = nodes.size();
@@ -34,10 +37,8 @@ class Sequence_Manager{
           shortest_sequence_sum = sum;
           shortest_sequence = s;
         }
+      }
     }
-    
-    
-   shortest_sequence.print_sequence();
     return shortest_sequence;
   }
   

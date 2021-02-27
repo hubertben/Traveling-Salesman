@@ -42,21 +42,7 @@ void draw() {
   background(bg_color);
   
   print_header();
-  
-  //noLoop();
-  
-  // Show All Edges
-  //for(Node n : nodes){
-  //  for(Node m : nodes){
-  //    if(m != n){
-  //      n.edge_to(m);
-  //    }
-  //  }
-  //}
-  
-  
-  
-  
+
   if(run_once){
     Sequence_Manager s = new Sequence_Manager();
     s_ = s.solve();
@@ -71,17 +57,18 @@ void draw() {
   
   for(Node n : nodes){
     n.display();
-      //n.print_distances();
   }
   
-  
-  
+  for(Node n : nodes){
+    if(int(n.name) == starting_node){
+      n.clr = color(100, 255, 100);
+    }else{
+      n.clr = color(255, 255, 255);
+    }
+  }
   
   run_once = false;
 }
-
-
-
 
 
 public void print_header(){
